@@ -1,8 +1,23 @@
 {
   "version": "0.0.1",
-  "name": "cursor-move",
-  "module": "index.ts",
-  "bin": "index.ts",
+  "name": "afkursor",
+  "author": {
+    "name": "ReneJFC",
+    "url": "https://x.com/ReneJFC_"
+  },
+  "keywords": [
+    "script",
+    "cursor",
+    "mouse",
+    "automation",
+    "afk",
+    "activity"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renejfc/afkursor.git"
+  },
   "scripts": {
     "start": "bun run index.ts",
     "dev": "bun --watch index.ts"
@@ -13,9 +28,13 @@
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "type": "module",
   "dependencies": {
     "@nut-tree/nut-js": "^4.1.0",
     "picocolors": "^1.0.0"
+  },
+  "type": "module",
+  "module": "index.ts",
+  "bin": {
+    "afkursor": "index.ts"
   }
 }
