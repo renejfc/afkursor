@@ -1,0 +1,21 @@
+{
+  "version": "0.0.1",
+  "name": "cursor-move",
+  "module": "index.ts",
+  "bin": "index.ts",
+  "scripts": {
+    "start": "bun run index.ts",
+    "dev": "bun --watch index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "@nut-tree/nut-js": "^4.1.0",
+    "picocolors": "^1.0.0"
+  }
+}
