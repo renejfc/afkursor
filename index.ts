@@ -1,3 +1,5 @@
+#!/usr/bin/env bun
+
 import { type Point, mouse, screen } from "@nut-tree/nut-js"
 import { getRandomValues} from "node:crypto"
 import c from "picocolors"
