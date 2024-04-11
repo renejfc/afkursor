@@ -1,26 +1,27 @@
 #!/usr/bin/env bun
 
-import { type Point, mouse, screen } from "@nut-tree/nut-js"
-import { getRandomValues} from "node:crypto"
+import { Bunbot, type Coords } from "bunbot"
+import { getRandomValues } from "node:crypto"
 import c from "picocolors"
 
-let { coords, xDir, yDir, speed }: Controls = {
-  coords: await mouse.getPosition(),
+const { getMousePosition, moveMouseSmooth, getScreenSize } = new Bunbot()
+
+let { coords, xDir, yDir, speed } = {
+  coords: getMousePosition(),
   xDir: randomOpt(["left", "right"]),
   yDir: randomOpt(["up", "down"]),
-  speed: 300,
-}
+  speed: 5,
+} satisfies Controls
 
-const [xMax, yMax, xMin, yMin] = [await screen.width(), await screen.height(), 0, 0]
-mouse.config.mouseSpeed = speed
+const [{ x: xMax, y: yMax }, xMin, yMin] = [getScreenSize(), 0, 0]
 
 while (true) {
   if (coords.x >= xMax) xDir = "left"; else if (coords.x <= xMin) xDir = "right"
   if (coords.y >= yMax) yDir = "up"; else if (coords.y <= yMin) yDir = "down"
   if (xDir === "right") coords.x++; else coords.x--
   if (yDir === "down") coords.y++; else coords.y--
-  
-  await mouse.move([coords])
+
+  moveMouseSmooth(coords.x, coords.y, speed)
 
   console.clear()
   console.log(
@@ -32,10 +33,10 @@ while (true) {
 
 function randomOpt<T>(arr: T[]): T {
   return arr[getRandomValues(new Uint32Array(1))[0] % arr.length]
-} 
+}
 
 type Controls = {
-  coords: Point,
+  coords: Coords,
   xDir: "left" | "right",
   yDir: "up" | "down",
   speed: number,
