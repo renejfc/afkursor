@@ -1,14 +1,20 @@
 {
   "name": "afkursor",
-  "version": "0.0.3",
+  "version": "0.0.4",
+  "description": "Move your cursor while you're afk",
   "keywords": [
     "script",
     "cursor",
     "mouse",
     "automation",
     "afk",
-    "activity"
+    "activity",
+    "bun"
   ],
+  "homepage": "https://github.com/renejfc/afkursor#readme",
+  "bugs": {
+    "url": "https://github.com/renejfc/afkursor/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/renejfc/afkursor.git"
@@ -19,7 +25,7 @@
     "url": "https://x.com/ReneJFC_"
   },
   "type": "module",
-  "module": "index.ts",
+  "main": "index.ts",
   "bin": "index.ts",
   "scripts": {
     "dev": "bun --watch index.ts",
